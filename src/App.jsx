@@ -16,15 +16,10 @@ function App() {
   },[]);
 
   const handlePreparing = (p) =>{
-    const isExist = meals.find((md) => md.id == p.id)
-    if(!isExist){
-      setMeals([...meals,p])
-    }
-    else{
-      alert("Already exists")
-    }
+    const newMeals = [...meals, p];
+    setMeals(newMeals)
+    
   }
-  console.log(meals);
 
   return (
     <>
@@ -92,7 +87,7 @@ function App() {
     </div>
     <div className='w-2/4'>
       
-        <Cooking></Cooking>
+        <Cooking meals={meals}></Cooking>
     
     </div>
     </div>

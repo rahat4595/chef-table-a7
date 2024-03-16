@@ -1,11 +1,11 @@
 
 
-const Cooking = () => {
+const Cooking = ({meals}) => {
   
     return (
         <>
         <div className="">
-            <h1 className="text-2xl text-center">Want To Cook: 01</h1>
+            <h1 className="text-2xl text-center">Want To Cook: {meals.length}</h1>
             
         </div>
 
@@ -22,16 +22,17 @@ const Cooking = () => {
     </thead>
     <tbody>
      
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-        <td>
-        <button className="px-3 py-2 bg-[#0BE58A]  rounded-full  border-none duration-300 hover:scale-90">Preparing</button>
-        </td>
-        
-      </tr>
+    {meals.map((meal, index) => (
+                            <tr key={index}>
+                                <th>{index + 1}</th>
+                                <td>{meal.recipe_name}</td>
+                                <td>{meal.preparing_time} minutes</td>
+                                <td>{meal.calories} calories</td>
+                                <td>
+                                    <button className="px-3 py-2 bg-[#0BE58A] rounded-full border-none duration-300 hover:scale-90">Preparing</button>
+                                </td>
+                            </tr>
+                        ))}
 
     </tbody>
   </table>
