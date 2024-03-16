@@ -76,7 +76,7 @@ function App() {
       <p className='text-base'>Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus vulputate netus pharetra rhoncus. Eget urna volutpat curabitur elementum mauris aenean neque.</p>
     </div>
 
-    <div className='max-w-7xl m-auto flex gap-10 pt-10'>
+    <div className='max-w-7xl m-auto flex gap-6 pt-10'>
     <div className='grid  grid-cols-2 gap-4 w-3/5'>
       {
         recipes.map((recipie)=>(
@@ -85,7 +85,7 @@ function App() {
       }
       
     </div>
-    <div className='w-2/4'>
+    <div className='w-2/4 border-2 p-5 rounded-xl h-full '>
       
         <Cooking meals={meals}></Cooking>
     

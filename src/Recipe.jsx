@@ -5,7 +5,7 @@ const Recipe = ({recipie,handlePreparing}) => {
         <div className="">
             <div className=" border-2 p-5 rounded-xl">
             
-            <img src={recipie.image} alt="dish" />
+            <img className='w-[331px] h-[200px] rounded-xl' src={recipie.image} alt="dish" />
             <div className="pt-5 pb-5">
             <h1 className="text-xl text-black">{recipie.recipe_name}</h1>
             <p className="text-base pt-4">{recipie.short_description}</p>

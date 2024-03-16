@@ -1,6 +1,15 @@
+import { useState } from "react";
 
 
 const Cooking = ({meals}) => {
+  const [currentlyCooking, setCurrentlyCooking] = useState([]);
+  
+  const handlePrepare = (meal) =>{
+      setCurrentlyCooking([...currentlyCooking,meal])
+  }
+
+  const totalTime = currentlyCooking.reduce((total, meal) => total + parseInt(meal.preparing_time), 0);
+    const totalCalories = currentlyCooking.reduce((total, meal) => total + parseInt(meal.calories), 0);
   
     return (
         <>
@@ -29,7 +38,7 @@ const Cooking = ({meals}) => {
                                 <td>{meal.preparing_time} minutes</td>
                                 <td>{meal.calories} calories</td>
                                 <td>
-                                    <button className="px-3 py-2 bg-[#0BE58A] rounded-full border-none duration-300 hover:scale-90">Preparing</button>
+                                    <button onClick={() => handlePrepare(meal)} className="px-3 py-2 bg-[#0BE58A] rounded-full border-none duration-300 hover:scale-90">Preparing</button>
                                 </td>
                             </tr>
                         ))}
@@ -39,14 +48,14 @@ const Cooking = ({meals}) => {
 </div>
 
       <div className="pt-5">
-        <h1 className="text-2xl text-center">Currently Cooking: 01</h1>
+        <h1 className="text-2xl text-center">Currently Cooking: {currentlyCooking.length}</h1>
       </div>
         
       <table className="table table-zebra">
 
     <thead>
       <tr>
-        <th></th>
+        <th>#</th>
         <th>Name</th>
         <th>Time</th>
         <th>Calories</th>
@@ -54,16 +63,22 @@ const Cooking = ({meals}) => {
     </thead>
     <tbody>
      
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-        
-      </tr>
+    {currentlyCooking.map((meal, index) => (
+                            <tr key={index}>
+                                <th>{index + 1}</th>
+                                <td>{meal.recipe_name}</td>
+                                <td>{meal.preparing_time} minutes</td>
+                                <td>{meal.calories} calories</td>
+                            </tr>
+                        ))}
 
     </tbody>
   </table>
+
+      <div className="flex flex-col mt-5 items-end">
+        <p>Total Time:{totalTime}</p>
+        <p>Total Calories:{totalCalories}</p>
+      </div>
 
         </>
         
