@@ -7,17 +7,29 @@ import { useEffect } from 'react';
 
 function App() {
   const [recipes, setRecipe] = useState([]);
+  const [meals, setMeals] = useState([])
 
   useEffect(() =>{
     fetch('recipe.json')
     .then(res => res.json())
     .then(data => setRecipe(data))
-  },[])
+  },[]);
+
+  const handlePreparing = (p) =>{
+    const isExist = meals.find((md) => md.id == p.id)
+    if(!isExist){
+      setMeals([...meals,p])
+    }
+    else{
+      alert("Already exists")
+    }
+  }
+  console.log(meals);
 
   return (
     <>
       
-     <nav className='max-w-7xl m-auto'>
+     <nav className='max-w-7xl m-auto hidden lg:block'>
      <div className="navbar bg-base-100">
   <div className="flex-1 ">
     <a className="btn btn-ghost text-3xl">Recipe Calories</a>
@@ -25,19 +37,22 @@ function App() {
   <div className='w-[42%]'>
     <ul className='flex gap-6'>
       <li>Home</li>
+      <li>Recipes</li>
       <li>About</li>
-      <li>Recipe</li>
-      <li>Contact</li>
+      <li>Search</li>
     </ul>
   </div>
   <div className="flex-none gap-2">
     <div className="form-control">
-      <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+    <label className="input input-bordered flex items-center gap-2">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+    <input type="text" className="grow" placeholder="Search" />
+  </label>
     </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img className='bg-[#0BE58A]' alt="Tailwind CSS Navbar component" src="https://i.ibb.co/pX03SVM/Frame.png" />
         </div>
       </div>
     </div>
@@ -46,7 +61,7 @@ function App() {
      </nav>
     <main>
     <div>
-    <div className="hero max-w-7xl m-auto h-[600px] rounded-2xl" style={{ backgroundImage: "url('../images/banner.png')"}}>
+    <div className="hero max-w-7xl m-auto h-[600px] rounded-2xl" style={{ backgroundImage: "url('https://i.ibb.co/S0JsSxd/banner.png')"}}>
       <div className="hero-overlay bg-opacity-40"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="w-4/5">
@@ -67,16 +82,18 @@ function App() {
     </div>
 
     <div className='max-w-7xl m-auto flex gap-10 pt-10'>
-    <div className='grid  grid-cols-2 gap-4'>
+    <div className='grid  grid-cols-2 gap-4 w-3/5'>
       {
         recipes.map((recipie)=>(
-        <Recipe key={recipie.recipe_id} recipie={recipie}></Recipe>
+        <Recipe key={recipie.recipe_id} recipie={recipie} handlePreparing={handlePreparing}></Recipe>
         ))
       }
       
     </div>
     <div className='w-2/4'>
-    <Cooking></Cooking>
+      
+        <Cooking></Cooking>
+    
     </div>
     </div>
 
