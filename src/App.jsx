@@ -92,7 +92,7 @@ function App() {
       <div className="hero-content text-center text-neutral-content">
         <div className="w-4/5">
           <h1 className="mb-5 text-2xl lg:text-5xl text-white font-bold">Discover an exceptional cooking class tailored for you!</h1>
-          <p className="mb-5 text-sm lg:text-lg font-normal text-gray-300">Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer</p>
+          <p className="mb-5 text-sm lg:text-lg font-normal text-gray-300">Experience culinary mastery firsthand with our engaging cooking classes. From basic techniques to gourmet delights, discover the art of cooking in a fun and educational environment.</p>
           <div className='flex flex-col md:flex-row gap-5 lg:gap-10 justify-center lg:pt-5'>
           <button className="btn bg-[#0BE58A] text-sm rounded-full px-8 border-none">Explore Now</button>
           <button className="btn bg-transparent text-white text-sm rounded-full px-8 ">Our Feedback</button>
@@ -104,7 +104,7 @@ function App() {
 
     <div className='max-w-4xl m-auto text-center pt-5 lg:pt-20'>
       <h1 className='text-4xl mb-8 font-semibold'>Our Recipes</h1>
-      <p className='text-base font-normal text-[#150B2B99]'>Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus vulputate netus pharetra rhoncus. Eget urna volutpat curabitur elementum mauris aenean neque.</p>
+      <p className='text-base font-normal text-[#150B2B99]'>Step into a world of culinary delight with our curated selection of recipes, where every dish tells a story of flavor, creativity, and culinary mastery. So try now!</p>
     </div>
 
     <div className='max-w-7xl m-auto flex flex-col md:flex-row  gap-6 pt-10'>
