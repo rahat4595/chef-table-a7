@@ -29,7 +29,7 @@ function App() {
     }
   
     if (preparedMeals.includes(p)) {
-      toast.error('This recipe has already been prepared.');
+      toast.error('This recipe has already been added.');
       return;
     }
   
@@ -41,7 +41,7 @@ function App() {
   
       setPreparedMeals([...preparedMeals, p]);
   
-      toast.success('Meal prepared successfully!');
+      toast.success('Recipe added successfully!');
     } catch (error) {
       toast.error('Error preparing meal. Please try again later.');
       console.error('Error preparing meal:', error);
@@ -58,14 +58,14 @@ function App() {
      <nav className='max-w-7xl m-auto mt-8'>
      <div className="navbar bg-base-100">
   <div className="flex-1 ">
-    <a className="btn btn-ghost text-3xl">Recipe Calories</a>
+    <a className="btn btn-ghost text-3xl font-bold">Recipe Calories</a>
   </div>
-  <div className='w-[42%] hidden lg:block'>
-    <ul className='flex gap-6'>
-      <li>Home</li>
-      <li>Recipes</li>
-      <li>About</li>
-      <li>Search</li>
+  <div className='w-[39%] hidden lg:block'>
+    <ul className='flex gap-6 font-normal text-[#150B2BB3]'>
+      <a href="#"><li>Home</li></a>
+      <a href="#"><li>Recipes</li></a>
+      <a href="#"><li>About</li></a>
+      <a href="#"><li>Search</li></a>
     </ul>
   </div>
   <div className="flex-none gap-2">
@@ -88,11 +88,11 @@ function App() {
     <main className='p-5 md:p-0'>
     <div>
     <div className="hero max-w-7xl m-auto h-[600px] rounded-2xl md:mt-10" style={{ backgroundImage: "url('https://i.ibb.co/S0JsSxd/banner.png')"}}>
-      <div className="hero-overlay bg-opacity-40 rounded-2xl"></div>
+      <div className="hero-overlay bg-opacity-20 rounded-2xl"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="w-4/5">
-          <h1 className="mb-5 text-2xl lg:text-5xl text-white font-bold ">Discover an exceptional cooking class tailored for you!</h1>
-          <p className="mb-5 text-sm lg:text-lg">Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer</p>
+          <h1 className="mb-5 text-2xl lg:text-5xl text-white font-bold">Discover an exceptional cooking class tailored for you!</h1>
+          <p className="mb-5 text-sm lg:text-lg font-normal text-gray-300">Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer</p>
           <div className='flex flex-col md:flex-row gap-5 lg:gap-10 justify-center lg:pt-5'>
           <button className="btn bg-[#0BE58A] text-sm rounded-full px-8 border-none">Explore Now</button>
           <button className="btn bg-transparent text-white text-sm rounded-full px-8 ">Our Feedback</button>
@@ -102,9 +102,9 @@ function App() {
     </div>
     </div>
 
-    <div className='max-w-4xl m-auto text-center pt-20'>
-      <h1 className='text-4xl mb-8'>Our Recipes</h1>
-      <p className='text-base'>Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus vulputate netus pharetra rhoncus. Eget urna volutpat curabitur elementum mauris aenean neque.</p>
+    <div className='max-w-4xl m-auto text-center pt-5 lg:pt-20'>
+      <h1 className='text-4xl mb-8 font-semibold'>Our Recipes</h1>
+      <p className='text-base font-normal text-[#150B2B99]'>Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus vulputate netus pharetra rhoncus. Eget urna volutpat curabitur elementum mauris aenean neque.</p>
     </div>
 
     <div className='max-w-7xl m-auto flex flex-col md:flex-row  gap-6 pt-10'>

@@ -16,7 +16,7 @@ const Cooking = ({meals,setMeals}) => {
     return (
         <>
         <div className="">
-            <h1 className="text-2xl text-center">Want To Cook: {meals.length}</h1>
+            <h1 className="text-2xl text-center font-semibold">Want To Cook: {meals.length}</h1>
             
         </div>
 
@@ -50,7 +50,7 @@ const Cooking = ({meals,setMeals}) => {
 </div>
 
       <div className="pt-5">
-        <h1 className="text-2xl text-center">Currently Cooking: {currentlyCooking.length}</h1>
+        <h1 className="text-2xl text-center font-semibold">Currently Cooking: {currentlyCooking.length}</h1>
       </div>
         
       <table className="table table-zebra">
@@ -78,8 +78,8 @@ const Cooking = ({meals,setMeals}) => {
   </table>
 
       <div className="flex flex-col mt-5 items-end">
-        <p>Total Time = {totalTime} min</p>
-        <p>Total Calories = {totalCalories} calories</p>
+        <p className="font-medium text-[#282828CC]">Total Time = {totalTime} min</p>
+        <p className="font-medium text-[#282828CC]">Total Calories = {totalCalories} calories</p>
       </div>
 
         </>

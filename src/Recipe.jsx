@@ -7,11 +7,11 @@ const Recipe = ({recipie,handlePreparing}) => {
             
             <img className='w-[331px] h-[200px] rounded-xl' src={recipie.image} alt="dish" />
             <div className="pt-5 pb-5">
-            <h1 className="text-xl text-black">{recipie.recipe_name}</h1>
-            <p className="text-base pt-4">{recipie.short_description}</p>
+            <h1 className="text-xl text-black font-semibold">{recipie.recipe_name}</h1>
+            <p className="text-base pt-4 font-normal text-[#878787]">{recipie.short_description}</p>
             </div>
-            <h1 className="text-lg pb-4">Ingredients: {recipie.ingredients.length}</h1>
-            <ul className='list-disc ml-4'>
+            <h1 className="text-lg pb-4 font-medium text-[#282828]">Ingredients: {recipie.ingredients.length}</h1>
+            <ul className='list-disc ml-4 font-normal text-[#878787]'>
             {recipie.ingredients.map((ingredient, index) => (
                         <li key={index}>{ingredient}</li>
                     ))}
