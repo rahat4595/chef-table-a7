@@ -126,6 +126,9 @@ function App() {
 
 
     </main>
+    <footer className='h-16'>
+
+    </footer>
     </>
   )
 }
