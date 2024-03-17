@@ -58,7 +58,7 @@ function App() {
      <nav className='max-w-7xl m-auto mt-8'>
      <div className="navbar bg-base-100">
   <div className="flex-1 ">
-    <a className="btn btn-ghost text-3xl font-bold">Recipe Calories</a>
+    <a className="btn btn-ghost text-3xl font-bold">Flavorful Fusions</a>
   </div>
   <div className='w-[39%] hidden lg:block'>
     <ul className='flex gap-6 font-normal text-[#150B2BB3]'>
