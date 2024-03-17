@@ -3,11 +3,18 @@ import './App.css'
 import Cooking from './Cooking'
 import Recipe from './Recipe'
 import { useEffect } from 'react';
+import { ToastContainer ,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   const [recipes, setRecipe] = useState([]);
-  const [meals, setMeals] = useState([])
+  const [meals, setMeals] = useState([]);
+  const [preparing, setPreparing] = useState(false);
+  const [preparedMeals, setPreparedMeals] = useState([]);
+  
+ 
+
 
   useEffect(() =>{
     fetch('recipe.json')
@@ -15,16 +22,40 @@ function App() {
     .then(data => setRecipe(data))
   },[]);
 
-  const handlePreparing = (p) =>{
-    const newMeals = [...meals, p];
-    setMeals(newMeals)
+  const handlePreparing = (p) => {
+    if (preparing) {
+      toast.warning('Meal preparation is already in progress.');
+      return;
+    }
+  
+    if (preparedMeals.includes(p)) {
+      toast.error('This recipe has already been prepared.');
+      return;
+    }
+  
+    try {
+      setPreparing(true);
+  
+      const newMeals = [...meals, p];
+      setMeals(newMeals);
+  
+      setPreparedMeals([...preparedMeals, p]);
+  
+      toast.success('Meal prepared successfully!');
+    } catch (error) {
+      toast.error('Error preparing meal. Please try again later.');
+      console.error('Error preparing meal:', error);
+    } finally {
+      setPreparing(false);
+    }
+      
     
-  }
+  };
 
   return (
     <>
-      
-     <nav className='max-w-7xl m-auto hidden lg:block'>
+      <ToastContainer />
+     <nav className='max-w-7xl m-auto hidden lg:block mt-8'>
      <div className="navbar bg-base-100">
   <div className="flex-1 ">
     <a className="btn btn-ghost text-3xl">Recipe Calories</a>
@@ -56,8 +87,8 @@ function App() {
      </nav>
     <main>
     <div>
-    <div className="hero max-w-7xl m-auto h-[600px] rounded-2xl" style={{ backgroundImage: "url('https://i.ibb.co/S0JsSxd/banner.png')"}}>
-      <div className="hero-overlay bg-opacity-40"></div>
+    <div className="hero max-w-7xl m-auto h-[600px] rounded-2xl mt-10" style={{ backgroundImage: "url('https://i.ibb.co/S0JsSxd/banner.png')"}}>
+      <div className="hero-overlay bg-opacity-40 rounded-2xl"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="w-4/5">
           <h1 className="mb-5 text-5xl text-white font-bold ">Discover an exceptional cooking class tailored for you!</h1>
@@ -87,7 +118,7 @@ function App() {
     </div>
     <div className='w-2/4 border-2 p-5 rounded-xl h-full '>
       
-        <Cooking meals={meals}></Cooking>
+        <Cooking meals={meals} setMeals={setMeals}></Cooking>
     
     </div>
     </div>

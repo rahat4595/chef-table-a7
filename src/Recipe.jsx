@@ -3,7 +3,7 @@ const Recipe = ({recipie,handlePreparing}) => {
     // console.log(handlePreparing);
     return (
         <div className="">
-            <div className=" border-2 p-5 rounded-xl">
+            <div className=" border-2 p-5 rounded-xl h-[700px]">
             
             <img className='w-[331px] h-[200px] rounded-xl' src={recipie.image} alt="dish" />
             <div className="pt-5 pb-5">
@@ -16,10 +16,10 @@ const Recipe = ({recipie,handlePreparing}) => {
                         <li key={index}>{ingredient}</li>
                     ))}
             </ul>
-            <hr />
+            <hr className='mt-5' />
             <div className="flex gap-5 py-5">
-                <small>{recipie.preparing_time} Minutes</small>
-                <small>{recipie.calories} Calories</small>
+                <small className='flex gap-2 text-gray-500'><img src="https://i.ibb.co/WzMf2HP/Screenshot-2024-03-17-035525.png" alt="" />{recipie.preparing_time} minutes</small>
+                <small className='flex gap-2 text-gray-500'><img src="https://i.ibb.co/5GHG7kK/Screenshot-2024-03-17-035600.png" alt="" />{recipie.calories} calories</small>
             </div>
             <button onClick={() => handlePreparing(recipie)} className="btn bg-[#0BE58A] text-lg rounded-full  border-none">Want To Cook</button>
         </div> 

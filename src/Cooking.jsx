@@ -1,11 +1,13 @@
 import { useState } from "react";
 
 
-const Cooking = ({meals}) => {
+const Cooking = ({meals,setMeals}) => {
   const [currentlyCooking, setCurrentlyCooking] = useState([]);
   
   const handlePrepare = (meal) =>{
-      setCurrentlyCooking([...currentlyCooking,meal])
+      setCurrentlyCooking([...currentlyCooking,meal]);
+      const removeMeals = meals.filter((m) => m.recipe_id !== meal.recipe_id);
+      setMeals(removeMeals)
   }
 
   const totalTime = currentlyCooking.reduce((total, meal) => total + parseInt(meal.preparing_time), 0);
@@ -76,8 +78,8 @@ const Cooking = ({meals}) => {
   </table>
 
       <div className="flex flex-col mt-5 items-end">
-        <p>Total Time:{totalTime}</p>
-        <p>Total Calories:{totalCalories}</p>
+        <p>Total Time = {totalTime} min</p>
+        <p>Total Calories = {totalCalories} calories</p>
       </div>
 
         </>
