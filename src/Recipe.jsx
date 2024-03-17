@@ -18,8 +18,8 @@ const Recipe = ({recipie,handlePreparing}) => {
             </ul>
             <hr className='mt-5' />
             <div className="flex gap-5 py-5">
-                <small className='flex gap-2 text-gray-500'><img src="https://i.ibb.co/WzMf2HP/Screenshot-2024-03-17-035525.png" alt="" />{recipie.preparing_time} minutes</small>
-                <small className='flex gap-2 text-gray-500'><img src="https://i.ibb.co/5GHG7kK/Screenshot-2024-03-17-035600.png" alt="" />{recipie.calories} calories</small>
+                <small className='flex w-2/4 gap-2 text-gray-500'><img src="https://i.ibb.co/WzMf2HP/Screenshot-2024-03-17-035525.png" alt="" />{recipie.preparing_time} minutes</small>
+                <small className='flex w-2/4 gap-2 text-gray-500'><img src="https://i.ibb.co/5GHG7kK/Screenshot-2024-03-17-035600.png" alt="" />{recipie.calories} calories</small>
             </div>
             <button onClick={() => handlePreparing(recipie)} className="btn bg-[#0BE58A] text-lg rounded-full  border-none">Want To Cook</button>
         </div> 
